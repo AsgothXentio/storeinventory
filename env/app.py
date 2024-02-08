@@ -39,7 +39,7 @@ def clean_date(date_str=None):
         year = int(date_split[2])
         return datetime.date(year, month, day)
     else:
-        return datetime.datetime.now().strftime("%m/%d/%Y %H:%M")
+         return datetime.datetime.now().date()
 
 
 
@@ -72,7 +72,7 @@ def add_csv():
                 session.add(new_prod)
             else:
                 prod_price = clean_num(row[1])
-                prod_quan = row[2]
+                prod_quan = int(row[2])
                 prod_dat = clean_date(row[3])
 
         session.commit()
